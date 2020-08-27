@@ -25,6 +25,7 @@ The purpose of this project is to practice testing with **Jest** and **Enzyme**,
    2. [Test Component Rendering](#Test-Component-Rendering)
    3. [DRY Refactor](#DRY-Refactor)
    4. [Testing Initial State](#Testing-Initial-State)
+4. [Shallow functions](#4. shallow rendering functions used)
 
 
 
@@ -32,15 +33,7 @@ The purpose of this project is to practice testing with **Jest** and **Enzyme**,
 
 I'm testing a simple React app that displays a counter and a button. Each time the user clicks on the button, the counter increments by one.
 
-<p align="center">
-
-<p align="center">
   ![click-counter-show](/Users/elenamartinezmarin/Documents/web-development/repositories/practice/click-counter/click-counter-show.gif)
-</p>
-
-
-
-
 
 ## 2. Set up
 
@@ -360,20 +353,26 @@ class App extends Component {
 
 
 
+## 4. Shallow rendering functions used
+
+**`.shallow([options])`**: Renders the root node and returns a shallow wrapper around it. It must be a single-node wrapper. [Reference](https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/shallow.html)
+
+**`.find(selector)`**: Finds every node in the render tree of the current wrapper that matches the provided selector. The selectors are valid CSS selectors. [Reference](https://enzymejs.github.io/enzyme/docs/api/selector.html)
+
+**`.text()`**: Returns a string of the rendered text of the current render tree. [Reference](https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/text.html)
+
+**`.simulate(event)`**: Simulates events on the root node in the wrapper. [Reference](https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/simulate.html) 
+
+**`.state([key])`**: Returns the state hash for the root node of the wrapper.  Optionally pass in a prop name and it will return just that value. [Reference](https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/state.html)
+
+**`.setState(nextState)`**: Invokes `setState()` on the root component instance. [Reference](https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/setState.html)
+
+
+
+
+
 ----
 
 [^1]: **Test Driven Development**: Write the tests before the code. Red-green testing.
 [^2]: **`enzyme-adapter-X`** tells enzyme what kind of code we are going to be writing, in this case, we are using React v.16.*
 [^3]: **shallow rendering** is a special kind of rendering that Enzyme allows us to use, which consists on rendering only one level depth of a component. The component will render but the children components won't be rendered, instead, there will be a placeholder. This method allows for quicker, cleaner and more isolated tests. 👍🏻
-
-.state
-
-.setState
-
-.simulate
-
-.text
-
-.find
-
-.shallow
