@@ -25,7 +25,7 @@ The purpose of this project is to practice testing with **Jest** and **Enzyme**,
    2. [Test Component Rendering](#Test-Component-Rendering)
    3. [DRY Refactor](#DRY-Refactor)
    4. [Testing Initial State](#Testing-Initial-State)
-4. [Shallow functions](#4.-shallow-rendering-functions-used)
+4. [Shallow functions](#shallow-rendering-functions-used)
 
 <br />
 
