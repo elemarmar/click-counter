@@ -1,6 +1,6 @@
 # Click counter
 
-The purpose of this project is to practice testing with **Jest** and **Enzyme**, as well as TDD[^1] principles by seting up a simple React app with Jest and Enzyme. We use:
+The purpose of this project is to practice testing with **Jest** and **Enzyme**, as well as TDD<sup>1</sup> principles by seting up a simple React app with Jest and Enzyme. We use:
 
 - Enzyme's `shallow()` function is used to render a component. 
 - `find()` to test that required DOM elements are rendered
@@ -12,7 +12,7 @@ The purpose of this project is to practice testing with **Jest** and **Enzyme**,
 >
 > First I write the tests, so that they fail (**red**) and then I write the actual code so that the tests pass (**green**).
 
-
+<br />
 
 ## Index
 
@@ -25,15 +25,21 @@ The purpose of this project is to practice testing with **Jest** and **Enzyme**,
    2. [Test Component Rendering](#Test-Component-Rendering)
    3. [DRY Refactor](#DRY-Refactor)
    4. [Testing Initial State](#Testing-Initial-State)
-4. [Shallow functions](#4. shallow rendering functions used)
+4. [Shallow functions](#shallow-rendering-functions-used)
 
-
+<br />
 
 ## 1. The app
 
 I'm testing a simple React app that displays a counter and a button. Each time the user clicks on the button, the counter increments by one.
 
-  ![click-counter-show](/Users/elenamartinezmarin/Documents/web-development/repositories/practice/click-counter/click-counter-show.gif)
+<p align="center">
+
+  ![click-counter-show](./click-counter-show.gif)
+  
+</p>
+
+<br />
 
 ## 2. Set up
 
@@ -43,7 +49,7 @@ I'm testing a simple React app that displays a counter and a button. Each time t
 
 - `enzyme`
 - `enzyme-jest`
-- `enzyme-adapter-react-16` (for v16 of React) [^2]
+- `enzyme-adapter-react-16` (for v16 of React) <sup>2</sup>
 
 ```bash
 npm install --save-dev enzyme jest-enzyme enzyme-adapter-react-16
@@ -51,6 +57,8 @@ npm install --save-dev enzyme jest-enzyme enzyme-adapter-react-16
 
 > ℹ️  We save these packages for **development**, we don't need them for production. 
 
+
+<br />
 
 
 ### Configuring Enzyme
@@ -75,7 +83,7 @@ Enzyme.configure({ adapter: new EnzymeAdapter() })
 
 > This lets Enzyme know that we are going to use **React 16**.
 
-
+<br />
 
 ## 3. Writing the tests
 
@@ -89,6 +97,8 @@ test('renders without error', () => {
 })
 ```
 
+<br />
+
 **Test that there is the button**:
 
 ```jsx
@@ -96,6 +106,8 @@ test('renders increment button', () => {
   // code will go here
 })
 ```
+
+<br />
 
 **Test that we have a display of the counter**:
 
@@ -105,6 +117,8 @@ test('renders counter display', () => {
 })
 ```
 
+<br />
+
 **Test that the counter starts at 0** (we are going to test state)
 
 ```jsx
@@ -113,6 +127,8 @@ test('counter starts at 0', () => {
 })
 ```
 
+<br />
+
 **Test that when the button is clicked, it increments the counter display**
 
 ```jsx
@@ -120,7 +136,7 @@ test('clicking button increments counter', () => {
   // code will go here
 })
 ```
-
+<br />
 
 
 #### Test Component Rendering
@@ -167,7 +183,7 @@ class App extends Component {
 
 >  🟢 All tests should pass!
 
-
+<br />
 
 **We do the same for the rest of the tests** 
 
@@ -215,7 +231,7 @@ class App extends Component {
 
 > 🟢 All tests should pass!
 
-
+<br />
 
 ---
 
@@ -223,7 +239,7 @@ class App extends Component {
 
 I'll refactor my code so it's not so repetitive:
 
-1. we create a **set up function** that renders the **shallow**[^3] version of our component and allows us to give it optional props and state.
+1. we create a **set up function** that renders the **shallow**<sup>3</sup> version of our component and allows us to give it optional props and state.
 
    ```jsx
    const setup = (props={}, state=null) => {
@@ -245,7 +261,7 @@ I'll refactor my code so it's not so repetitive:
 
 4. 👉🏻 we substitute each "`  const counterDisplay = wrapper.find("[data-test='counter-display']")`" with our `findByTestAttr` function.
 
-
+<br />
 
 ---
 
@@ -292,6 +308,7 @@ class App extends Component {
 > 🟢 all tests should pass!
 
 
+<br />
 
 #### Test Button click (update state)
 
@@ -351,7 +368,7 @@ class App extends Component {
 
 > 🟢 'all tests should pass!'
 
-
+<br />
 
 ## 4. Shallow rendering functions used
 
@@ -369,10 +386,11 @@ class App extends Component {
 
 
 
-
+<br />
 
 ----
+**Footnotes**
 
-[^1]: **Test Driven Development**: Write the tests before the code. Red-green testing.
-[^2]: **`enzyme-adapter-X`** tells enzyme what kind of code we are going to be writing, in this case, we are using React v.16.*
-[^3]: **shallow rendering** is a special kind of rendering that Enzyme allows us to use, which consists on rendering only one level depth of a component. The component will render but the children components won't be rendered, instead, there will be a placeholder. This method allows for quicker, cleaner and more isolated tests. 👍🏻
+- `^1:` **Test Driven Development**: Write the tests before the code. Red-green testing.
+- `^2:` **`enzyme-adapter-X`** tells enzyme what kind of code we are going to be writing, in this case, we are using React v.16.*
+- `^3:` **shallow rendering** is a special kind of rendering that Enzyme allows us to use, which consists on rendering only one level depth of a component. The component will render but the children components won't be rendered, instead, there will be a placeholder. This method allows for quicker, cleaner and more isolated tests. 👍🏻
