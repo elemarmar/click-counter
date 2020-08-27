@@ -395,7 +395,7 @@ class App extends Component {
 
 - [x] Add a decrement button
 - [x] No Count below zero: if the counter is at zero, and the decrement button is clicked, display an error message saying the counter can't go below zero
-- [ ] Clear error on increment
+- [x] Clear error on increment
 
 ----
 **Footnotes**
