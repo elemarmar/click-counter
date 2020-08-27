@@ -26,6 +26,7 @@ The purpose of this project is to practice testing with **Jest** and **Enzyme**,
    3. [DRY Refactor](#DRY-Refactor)
    4. [Testing Initial State](#Testing-Initial-State)
 4. [Shallow functions](#shallow-rendering-functions-used)
+5. [Extras](#5.-Extras)
 
 <br />
 
@@ -36,7 +37,7 @@ I'm testing a simple React app that displays a counter and a button. Each time t
 <p align="center">
 
   ![click-counter-show](./click-counter-show.gif)
-  
+
 </p>
 
 <br />
@@ -387,6 +388,14 @@ class App extends Component {
 
 
 <br />
+
+
+
+## 5. Extras
+
+- [x] Add a decrement button
+- [x] No Count below zero: if the counter is at zero, and the decrement button is clicked, display an error message saying the counter can't go below zero
+- [ ] Clear error on increment
 
 ----
 **Footnotes**

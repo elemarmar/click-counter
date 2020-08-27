@@ -53,7 +53,7 @@ test('counter starts at 0', () => {
   expect(initialCounterState).toBe(0);
 })
 
-test('clicking button increments counter', () => {
+test('clicking increment button increments counter', () => {
 	const counter = 7;
 	const wrapper = setup(null, {counter});
   
@@ -65,3 +65,66 @@ test('clicking button increments counter', () => {
 	const counterDisplay = findByTestAttr(wrapper, 'counter-display');
 	expect(counterDisplay.text()).toContain(counter + 1);
 })
+
+describe('Decrement', () => {
+	test('renders decrement button', () => {
+		const wrapper = setup();
+		const decrementButton = findByTestAttr(wrapper, 'decrement-button');
+		expect(decrementButton.length).toBe(1);
+	})
+	test('clicking decrement button decrements counter when counter is > 0', () => {
+		const counter = 9;
+		const wrapper = setup(null, {counter});
+
+		// find button and click
+		const button = findByTestAttr(wrapper, 'decrement-button');
+		button.simulate('click');
+
+		// find display and test value
+		const counterDisplay = findByTestAttr(wrapper, 'counter-display');
+		expect(counterDisplay.text()).toContain(counter - 1);
+	})
+
+	test('clicking decrement button when counter is 0 doesn\'t decrement', () => {
+		const counter = 0;
+		const wrapper = setup(null, {counter});
+
+		// find button and click
+		const button = findByTestAttr(wrapper, 'decrement-button');
+		button.simulate('click');
+
+		// find display and test value
+		const counterDisplay = findByTestAttr(wrapper, 'counter-display');
+		expect(counterDisplay.text()).toContain(0);
+	})
+
+	test('error shows', () => {
+		const counter = 0;
+		const wrapper = setup(null, {counter});
+
+		// find button and click
+		const button = findByTestAttr(wrapper, 'decrement-button');
+		button.simulate('click');
+
+
+		// find error and display
+		const errorMessage = findByTestAttr(wrapper, 'error-message');
+		expect(errorMessage.length).toBe(1);
+	})
+	test('clicking increment button clears error', () => {
+		const counter = 0;
+		const wrapper = setup(null, {counter});
+
+		// find button and click
+		const button = findByTestAttr(wrapper, 'increment-button');
+		button.simulate('click');
+
+		// error doesn't display
+		const errorMessage = findByTestAttr(wrapper, 'error-message');
+		expect(errorMessage.length).toBe(0);
+	})
+})
+
+
+
+
