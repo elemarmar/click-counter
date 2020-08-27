@@ -391,6 +391,6 @@ class App extends Component {
 ----
 **Footnotes**
 
-`^1:` **Test Driven Development**: Write the tests before the code. Red-green testing.
-`^2]:` **`enzyme-adapter-X`** tells enzyme what kind of code we are going to be writing, in this case, we are using React v.16.*
-`^3]:` **shallow rendering** is a special kind of rendering that Enzyme allows us to use, which consists on rendering only one level depth of a component. The component will render but the children components won't be rendered, instead, there will be a placeholder. This method allows for quicker, cleaner and more isolated tests. 👍🏻
+- `^1:` **Test Driven Development**: Write the tests before the code. Red-green testing.
+- `^2:` **`enzyme-adapter-X`** tells enzyme what kind of code we are going to be writing, in this case, we are using React v.16.*
+- `^3:` **shallow rendering** is a special kind of rendering that Enzyme allows us to use, which consists on rendering only one level depth of a component. The component will render but the children components won't be rendered, instead, there will be a placeholder. This method allows for quicker, cleaner and more isolated tests. 👍🏻
